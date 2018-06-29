@@ -1,0 +1,11 @@
+package rules;
+import main.User;
+
+expander mapplings.dsl
+rule "SimpleRules"
+    when
+      there is a user
+      the user has name "Reader"
+    then
+      user found
+end

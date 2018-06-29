@@ -1,0 +1,27 @@
+package rules
+import main.User;
+
+rule "truth"
+    when
+       :
+    then
+      System.out.println("truth");
+end
+
+
+rule "User Exists"
+    salience 10
+    when
+      $user : User()
+    then
+      System.out.println("Rule 'User Exists' \n"+$user);
+end
+
+rule "Super User"
+    salience 100
+    when
+      $user : User(type.equals("Superuser"))
+    then
+      System.out.println("Rule 'Super User' Super user found \n"+$user);
+      retract($user)
+end
